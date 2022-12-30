@@ -1,6 +1,6 @@
 #define ACCEL 0x20
 #define GRAVITY 0x50
-#define MAX_SPEED 0x240
+#define MAX_SPEED 0x100
 #define JUMP_VEL -0x600
 
 
@@ -11,6 +11,7 @@
 unsigned char pad1;
 unsigned char pad1_new;
 unsigned char collision;
+unsigned char climbable;
 unsigned char collision_L;
 unsigned char collision_R;
 unsigned char collision_U;
@@ -70,7 +71,7 @@ struct Hero BoxGuy1 = {0x4000,0xa400}; // starting position
 // note, I'm using the top left as the 0,0 on x,y
 
 #define HERO_WIDTH 13
-#define HERO_HEIGHT 11
+#define HERO_HEIGHT 18
 
 
 
@@ -116,18 +117,23 @@ const unsigned char metatiles1[]={
 #define COL_ALL 0x40
 
 const unsigned char is_solid[]={
-	0,
-	COL_DOWN,
-	COL_ALL+COL_DOWN,
-	COL_DOWN,
-	COL_DOWN,
-	COL_DOWN,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0
+	0, //empty block
+	COL_ALL, // wall
+	0, //ladder
+	COL_DOWN, //top floor
+	COL_DOWN, //bottom floor
+	COL_DOWN, //topfloorwithladder
+	COL_DOWN, //botfloorwithladder
+};
+
+const unsigned char is_climbable[]={
+	0, //empty block
+	0, // wall
+	1, //ladder
+	0, //top floor
+	0, //bottom floor
+	1, //topfloorwithladder
+	1, //botfloorwithladder
 };
 
 
@@ -155,4 +161,4 @@ void movement(void);
 void bg_collision(void);
 void bg_collision_sub(void);
 void bg_check_low(void);
-
+void bg_check_climbable(void);

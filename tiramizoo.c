@@ -162,6 +162,21 @@ void movement(void){
 		}
 		
 	}
+	else if (pad1 & PAD_UP){
+		bg_check_climbable();
+		if(climbable){
+			BoxGuy1.y -= 0x100;
+			// if(BoxGuy1.vel_y < -MAX_SPEED) BoxGuy1.vel_y = -MAX_SPEED;
+		}
+	}
+	else if (pad1 & PAD_DOWN){
+		bg_check_climbable();
+		if(climbable){
+			BoxGuy1.y += 0x100;
+			// BoxGuy1.vel_y += ACCEL;
+			// if(BoxGuy1.vel_y > MAX_SPEED) BoxGuy1.vel_y = MAX_SPEED;
+		}
+	}
 	else { // nothing pressed
 		if(BoxGuy1.vel_x >= 0x100) BoxGuy1.vel_x -= ACCEL;
 		else if(BoxGuy1.vel_x < -0x100) BoxGuy1.vel_x += ACCEL;
@@ -198,17 +213,18 @@ void movement(void){
 	
 // handle y
 
-// gravity
-
-	// BoxGuy1.vel_y is signed
-	if(BoxGuy1.vel_y < 0x300){
-		BoxGuy1.vel_y += GRAVITY;
+	// gravity
+	bg_check_climbable();
+	if(climbable == 0){ //gravity is ignored on climbables
+		// BoxGuy1.vel_y is signed
+		if(BoxGuy1.vel_y < 0x300){
+			BoxGuy1.vel_y += GRAVITY;
+		}
+		else{
+			BoxGuy1.vel_y = 0x300; // consistent
+		}
+		BoxGuy1.y += BoxGuy1.vel_y;
 	}
-	else{
-		BoxGuy1.vel_y = 0x300; // consistent
-	}
-	BoxGuy1.y += BoxGuy1.vel_y;
-	
 	Generic.x = high_byte(BoxGuy1.x); // the rest should be the same
 	Generic.y = high_byte(BoxGuy1.y);
 	bg_collision();
@@ -340,6 +356,14 @@ void bg_collision_sub(void){
 	}
 	
 	collision = is_solid[collision];
+}
+
+void bg_check_climbable(void){
+	coordinates = (temp1 >> 4) + (temp3 & 0xf0);
+	
+	climbable = c_map[coordinates];
+	
+	climbable = is_climbable[climbable];
 }
 
 

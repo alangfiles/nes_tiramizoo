@@ -33,6 +33,7 @@
 	.export		_pad1
 	.export		_pad1_new
 	.export		_collision
+	.export		_climbable
 	.export		_collision_L
 	.export		_collision_R
 	.export		_collision_U
@@ -65,6 +66,7 @@
 	.export		_palette_sp
 	.export		_metatiles1
 	.export		_is_solid
+	.export		_is_climbable
 	.export		_Room1
 	.export		_Room2
 	.export		_Room3
@@ -77,6 +79,7 @@
 	.export		_bg_collision
 	.export		_bg_collision_sub
 	.export		_bg_check_low
+	.export		_bg_check_climbable
 	.export		_main
 
 .segment	"DATA"
@@ -212,17 +215,20 @@ _metatiles1:
 	.byte	$00
 _is_solid:
 	.byte	$00
+	.byte	$40
+	.byte	$00
 	.byte	$80
-	.byte	$C0
 	.byte	$80
 	.byte	$80
 	.byte	$80
+_is_climbable:
 	.byte	$00
 	.byte	$00
+	.byte	$01
 	.byte	$00
 	.byte	$00
-	.byte	$00
-	.byte	$00
+	.byte	$01
+	.byte	$01
 _Room1:
 	.byte	$01
 	.byte	$01
@@ -279,7 +285,7 @@ _Room1:
 	.byte	$04
 	.byte	$04
 	.byte	$04
-	.byte	$04
+	.byte	$02
 	.byte	$04
 	.byte	$04
 	.byte	$04
@@ -339,6 +345,74 @@ _Room1:
 	.byte	$01
 	.byte	$04
 	.byte	$04
+	.byte	$02
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$02
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$01
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$01
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$01
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$01
+	.byte	$01
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$04
+	.byte	$02
 	.byte	$04
 	.byte	$04
 	.byte	$04
@@ -347,12 +421,11 @@ _Room1:
 	.byte	$04
 	.byte	$04
 	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$00
 	.byte	$00
 	.byte	$02
@@ -363,28 +436,12 @@ _Room1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
 	.byte	$00
 	.byte	$01
 	.byte	$01
 	.byte	$00
 	.byte	$00
-	.byte	$02
 	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$01
-	.byte	$01
 	.byte	$00
 	.byte	$00
 	.byte	$02
@@ -395,66 +452,15 @@ _Room1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
 	.byte	$00
 	.byte	$01
 	.byte	$01
-	.byte	$04
-	.byte	$04
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
 	.byte	$06
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$06
-	.byte	$04
-	.byte	$04
-	.byte	$04
-	.byte	$01
-	.byte	$01
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$01
-	.byte	$01
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$01
-	.byte	$01
-	.byte	$01
-	.byte	$01
-	.byte	$01
-	.byte	$01
-	.byte	$01
-	.byte	$01
 	.byte	$01
 	.byte	$01
 	.byte	$01
@@ -1444,6 +1450,8 @@ _pad1_new:
 	.res	1,$00
 _collision:
 	.res	1,$00
+_climbable:
+	.res	1,$00
 _collision_L:
 	.res	1,$00
 _collision_R:
@@ -1526,12 +1534,12 @@ _Generic:
 ; for(y=0; ;y+=0x20){
 ;
 	lda     #$00
-L06BC:	sta     _y
+L06DE:	sta     _y
 ;
 ; for(x=0; ;x+=0x20){
 ;
 	lda     #$00
-L06BB:	sta     _x
+L06DD:	sta     _x
 ;
 ; address = get_ppu_addr(0, x, y);
 ;
@@ -1577,31 +1585,31 @@ L06BB:	sta     _x
 ;
 	lda     _x
 	cmp     #$E0
-	beq     L06BD
+	beq     L06DF
 ;
 ; for(x=0; ;x+=0x20){
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     L06BB
+	jmp     L06DD
 ;
 ; if (y == 0xe0) break;
 ;
-L06BD:	lda     _y
+L06DF:	lda     _y
 	cmp     #$E0
-	beq     L055C
+	beq     L055E
 ;
 ; for(y=0; ;y+=0x20){
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L06BC
+	jmp     L06DE
 ;
 ; memcpy (c_map, Rooms[0], 240);
 ;
-L055C:	lda     #<(_c_map)
+L055E:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	lda     _Rooms
@@ -1631,7 +1639,7 @@ L055C:	lda     #<(_c_map)
 ; if(direction == LEFT) {
 ;
 	lda     _direction
-	bne     L0583
+	bne     L0585
 ;
 ; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneL);
 ;
@@ -1650,7 +1658,7 @@ L055C:	lda     #<(_c_map)
 ;
 ; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneR);
 ;
-L0583:	jsr     decsp2
+L0585:	jsr     decsp2
 	lda     _BoxGuy1+1
 	ldy     #$01
 	sta     (sp),y
@@ -1687,7 +1695,7 @@ L0583:	jsr     decsp2
 ;
 	lda     _pad1
 	and     #$02
-	beq     L06C1
+	beq     L06E3
 ;
 ; direction = LEFT;
 ;
@@ -1698,10 +1706,10 @@ L0583:	jsr     decsp2
 ;
 	lda     _BoxGuy1+1
 	cmp     #$01
-	bne     L059D
+	bne     L059F
 	lda     _BoxGuy1
 	cmp     #$01
-L059D:	bcs     L059B
+L059F:	bcs     L059D
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1717,10 +1725,10 @@ L059D:	bcs     L059B
 ;
 ; else if(BoxGuy1.x < 0x400) { // don't want to wrap around to the other side
 ;
-	jmp     L05D2
-L059B:	ldx     _BoxGuy1+1
+	jmp     L05E4
+L059D:	ldx     _BoxGuy1+1
 	cpx     #$04
-	bcs     L05A3
+	bcs     L05A5
 ;
 ; BoxGuy1.vel_x = -0x100;
 ;
@@ -1729,35 +1737,35 @@ L059B:	ldx     _BoxGuy1+1
 ;
 ; else {  
 ;
-	jmp     L06C3
+	jmp     L06E7
 ;
 ; BoxGuy1.vel_x -= ACCEL;
 ;
-L05A3:	lda     _BoxGuy1+4
+L05A5:	lda     _BoxGuy1+4
 	sec
 	sbc     #$20
 	sta     _BoxGuy1+4
-	bcs     L05AA
+	bcs     L05AC
 	dec     _BoxGuy1+4+1
 ;
 ; if(BoxGuy1.vel_x < -MAX_SPEED) BoxGuy1.vel_x = -MAX_SPEED;
 ;
-L05AA:	lda     _BoxGuy1+4
-	cmp     #$C0
+L05AC:	lda     _BoxGuy1+4
+	cmp     #$00
 	lda     _BoxGuy1+4+1
-	sbc     #$FD
-	bvc     L05AD
+	sbc     #$FF
+	bvc     L05AF
 	eor     #$80
-L05AD:	jpl     L05D2
-	ldx     #$FD
-	lda     #$C0
+L05AF:	jpl     L05E4
+	ldx     #$FF
+	lda     #$00
 ;
 ; else if (pad1 & PAD_RIGHT){
 ;
-	jmp     L06C3
-L06C1:	lda     _pad1
+	jmp     L06E7
+L06E3:	lda     _pad1
 	and     #$01
-	beq     L05B1
+	beq     L06E4
 ;
 ; direction = RIGHT; 
 ;
@@ -1770,7 +1778,7 @@ L06C1:	lda     _pad1
 	cmp     #$00
 	lda     _BoxGuy1+1
 	sbc     #$F0
-	bcc     L05B5
+	bcc     L05B7
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1786,78 +1794,130 @@ L06C1:	lda     _pad1
 ;
 ; } else {
 ;
-	jmp     L05D2
+	jmp     L05E4
 ;
 ; BoxGuy1.vel_x += ACCEL;
 ;
-L05B5:	lda     #$20
+L05B7:	lda     #$20
 	clc
 	adc     _BoxGuy1+4
 	sta     _BoxGuy1+4
-	bcc     L05BE
+	bcc     L05C0
 	inc     _BoxGuy1+4+1
 ;
 ; if(BoxGuy1.vel_x > MAX_SPEED) BoxGuy1.vel_x = MAX_SPEED;
 ;
-L05BE:	lda     _BoxGuy1+4
-	cmp     #$41
+L05C0:	lda     _BoxGuy1+4
+	cmp     #$01
 	lda     _BoxGuy1+4+1
-	sbc     #$02
-	bvs     L05C1
+	sbc     #$01
+	bvs     L05C3
 	eor     #$80
-L05C1:	bpl     L05D2
-	ldx     #$02
-	lda     #$40
+L05C3:	jpl     L05E4
+	ldx     #$01
+	lda     #$00
+;
+; else if (pad1 & PAD_UP){
+;
+	jmp     L06E7
+L06E4:	lda     _pad1
+	and     #$08
+	beq     L06E5
+;
+; bg_check_climbable();
+;
+	jsr     _bg_check_climbable
+;
+; if(climbable){
+;
+	lda     _climbable
+	jeq     L05E4
+;
+; BoxGuy1.y -= 0x100;
+;
+	lda     _BoxGuy1+2
+	sec
+	sbc     #$00
+	sta     _BoxGuy1+2
+	lda     _BoxGuy1+2+1
+	sbc     #$01
+	sta     _BoxGuy1+2+1
+;
+; else if (pad1 & PAD_DOWN){
+;
+	jmp     L05E4
+L06E5:	lda     _pad1
+	and     #$04
+	beq     L05CF
+;
+; bg_check_climbable();
+;
+	jsr     _bg_check_climbable
+;
+; if(climbable){
+;
+	lda     _climbable
+	beq     L05E4
+;
+; BoxGuy1.y += 0x100;
+;
+	lda     #$00
+	clc
+	adc     _BoxGuy1+2
+	sta     _BoxGuy1+2
+	lda     #$01
+	adc     _BoxGuy1+2+1
+	sta     _BoxGuy1+2+1
 ;
 ; else { // nothing pressed
 ;
-	jmp     L06C3
+	jmp     L05E4
 ;
 ; if(BoxGuy1.vel_x >= 0x100) BoxGuy1.vel_x -= ACCEL;
 ;
-L05B1:	lda     _BoxGuy1+4
+L05CF:	lda     _BoxGuy1+4
 	cmp     #$00
 	lda     _BoxGuy1+4+1
 	sbc     #$01
-	bvs     L05C7
+	bvs     L05D9
 	eor     #$80
-L05C7:	bpl     L05C5
+L05D9:	bpl     L05D7
 	lda     _BoxGuy1+4
 	sec
 	sbc     #$20
 	sta     _BoxGuy1+4
-	bcs     L05D2
+	bcs     L05E4
 	dec     _BoxGuy1+4+1
 ;
 ; else if(BoxGuy1.vel_x < -0x100) BoxGuy1.vel_x += ACCEL;
 ;
-	jmp     L05D2
-L05C5:	lda     _BoxGuy1+4
+	jmp     L05E4
+L05D7:	lda     _BoxGuy1+4
 	cmp     #$00
 	lda     _BoxGuy1+4+1
 	sbc     #$FF
-	bvc     L05CE
+	bvc     L05E0
 	eor     #$80
-L05CE:	asl     a
+L05E0:	asl     a
 	lda     #$00
 	tax
-	bcc     L06C3
+	bcc     L06E7
 	lda     #$20
 	clc
 	adc     _BoxGuy1+4
 	sta     _BoxGuy1+4
-	bcc     L05D2
+	bcc     L05E4
 	inc     _BoxGuy1+4+1
 ;
 ; else BoxGuy1.vel_x = 0;
 ;
-	jmp     L05D2
-L06C3:	sta     _BoxGuy1+4
+	jmp     L05E4
+L06E7:	sta     _BoxGuy1+4
 	stx     _BoxGuy1+4+1
 ;
 ; BoxGuy1.x += BoxGuy1.vel_x;
 ;
-L05D2:	lda     _BoxGuy1+4
+L05E4:	lda     _BoxGuy1+4
 	clc
 	adc     _BoxGuy1
 	sta     _BoxGuy1
@@ -1871,7 +1931,7 @@ L05D2:	lda     _BoxGuy1+4
 	cmp     #$01
 	lda     _BoxGuy1+1
 	sbc     #$F8
-	bcc     L06C4
+	bcc     L06E8
 ;
 ; BoxGuy1.x = 0x100;
 ;
@@ -1887,7 +1947,7 @@ L05D2:	lda     _BoxGuy1+4
 ;
 ; Generic.x = high_byte(BoxGuy1.x); // this is much faster than passing a pointer to BoxGuy1
 ;
-L06C4:	lda     _BoxGuy1+1
+L06E8:	lda     _BoxGuy1+1
 	sta     _Generic
 ;
 ; Generic.y = high_byte(BoxGuy1.y);
@@ -1902,7 +1962,7 @@ L06C4:	lda     _BoxGuy1+1
 ;
 ; Generic.height = HERO_HEIGHT;
 ;
-	lda     #$0B
+	lda     #$12
 	sta     _Generic+3
 ;
 ; bg_collision();
@@ -1912,9 +1972,9 @@ L06C4:	lda     _BoxGuy1+1
 ; if(collision_R && collision_L){ // if both true, probably half stuck in a wall
 ;
 	lda     _collision_R
-	beq     L05E8
+	beq     L05FA
 	lda     _collision_L
-	beq     L05E8
+	beq     L05FA
 ;
 ; BoxGuy1.x = old_x;
 ;
@@ -1931,9 +1991,9 @@ L06C4:	lda     _BoxGuy1+1
 ;
 ; else if(collision_L) {
 ;
-	jmp     L05FA
-L05E8:	lda     _collision_L
-	beq     L05F1
+	jmp     L060C
+L05FA:	lda     _collision_L
+	beq     L0603
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1949,9 +2009,9 @@ L05E8:	lda     _collision_L
 ;
 ; else if(collision_R) {
 ;
-	jmp     L06C8
-L05F1:	lda     _collision_R
-	beq     L05FA
+	jmp     L06ED
+L0603:	lda     _collision_R
+	beq     L060C
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1964,17 +2024,26 @@ L05F1:	lda     _collision_R
 	lda     _BoxGuy1+1
 	sec
 	sbc     _eject_R
-L06C8:	sta     _BoxGuy1+1
+L06ED:	sta     _BoxGuy1+1
+;
+; bg_check_climbable();
+;
+L060C:	jsr     _bg_check_climbable
+;
+; if(climbable == 0){ //gravity is ignored on climbables
+;
+	lda     _climbable
+	bne     L06E9
 ;
 ; if(BoxGuy1.vel_y < 0x300){
 ;
-L05FA:	lda     _BoxGuy1+6
+	lda     _BoxGuy1+6
 	cmp     #$00
 	lda     _BoxGuy1+6+1
 	sbc     #$03
-	bvc     L0604
+	bvc     L0619
 	eor     #$80
-L0604:	bpl     L0602
+L0619:	bpl     L0617
 ;
 ; BoxGuy1.vel_y += GRAVITY;
 ;
@@ -1982,23 +2051,23 @@ L0604:	bpl     L0602
 	clc
 	adc     _BoxGuy1+6
 	sta     _BoxGuy1+6
-	bcc     L0608
+	bcc     L061D
 	inc     _BoxGuy1+6+1
 ;
 ; else{
 ;
-	jmp     L0608
+	jmp     L061D
 ;
 ; BoxGuy1.vel_y = 0x300; // consistent
 ;
-L0602:	ldx     #$03
+L0617:	ldx     #$03
 	lda     #$00
 	sta     _BoxGuy1+6
 	stx     _BoxGuy1+6+1
 ;
 ; BoxGuy1.y += BoxGuy1.vel_y;
 ;
-L0608:	lda     _BoxGuy1+6
+L061D:	lda     _BoxGuy1+6
 	clc
 	adc     _BoxGuy1+2
 	sta     _BoxGuy1+2
@@ -2008,7 +2077,7 @@ L0608:	lda     _BoxGuy1+6
 ;
 ; Generic.x = high_byte(BoxGuy1.x); // the rest should be the same
 ;
-	lda     _BoxGuy1+1
+L06E9:	lda     _BoxGuy1+1
 	sta     _Generic
 ;
 ; Generic.y = high_byte(BoxGuy1.y);
@@ -2023,7 +2092,7 @@ L0608:	lda     _BoxGuy1+6
 ; if(collision_U) {
 ;
 	lda     _collision_U
-	beq     L0614
+	beq     L0629
 ;
 ; high_byte(BoxGuy1.y) = high_byte(BoxGuy1.y) - eject_U;
 ;
@@ -2034,9 +2103,9 @@ L0608:	lda     _BoxGuy1+6
 ;
 ; else if(collision_D) {
 ;
-	jmp     L06C9
-L0614:	lda     _collision_D
-	beq     L06C5
+	jmp     L06EE
+L0629:	lda     _collision_D
+	beq     L06EA
 ;
 ; high_byte(BoxGuy1.y) = high_byte(BoxGuy1.y) - eject_D;
 ;
@@ -2058,19 +2127,19 @@ L0614:	lda     _collision_D
 	cmp     #$01
 	lda     _BoxGuy1+6+1
 	sbc     #$00
-	bvs     L0627
+	bvs     L063C
 	eor     #$80
-L0627:	bpl     L06C5
+L063C:	bpl     L06EA
 ;
 ; BoxGuy1.vel_y = 0;
 ;
-L06C9:	lda     #$00
+L06EE:	lda     #$00
 	sta     _BoxGuy1+6
 	sta     _BoxGuy1+6+1
 ;
 ; Generic.y = high_byte(BoxGuy1.y); // the rest should be the same
 ;
-L06C5:	lda     _BoxGuy1+3
+L06EA:	lda     _BoxGuy1+3
 	sta     _Generic+1
 ;
 ; bg_check_low();
@@ -2080,13 +2149,13 @@ L06C5:	lda     _BoxGuy1+3
 ; if(collision_D) {
 ;
 	lda     _collision_D
-	beq     L0630
+	beq     L0645
 ;
 ; if(pad1_new & PAD_A) {
 ;
 	lda     _pad1_new
 	and     #$80
-	beq     L0630
+	beq     L0645
 ;
 ; BoxGuy1.vel_y = JUMP_VEL; // JUMP
 ;
@@ -2097,7 +2166,7 @@ L06C5:	lda     _BoxGuy1+3
 ;
 ; } 
 ;
-L0630:	rts
+L0645:	rts
 
 .endproc
 
@@ -2133,7 +2202,7 @@ L0630:	rts
 ;
 	lda     _Generic+1
 	cmp     #$F0
-	bcc     L06D0
+	bcc     L06F5
 ;
 ; }
 ;
@@ -2141,7 +2210,7 @@ L0630:	rts
 ;
 ; temp6 = temp5 = Generic.x; // upper left (temp6 = save for reuse)
 ;
-L06D0:	lda     _Generic
+L06F5:	lda     _Generic
 	ldx     #$00
 	sta     _temp5
 	stx     _temp5+1
@@ -2182,7 +2251,7 @@ L06D0:	lda     _Generic
 ;
 	lda     _collision
 	and     #$40
-	beq     L06CB
+	beq     L06F0
 ;
 ; ++collision_L;
 ;
@@ -2194,7 +2263,7 @@ L06D0:	lda     _Generic
 ;
 ; temp5 += Generic.width;
 ;
-L06CB:	lda     _Generic+2
+L06F0:	lda     _Generic+2
 	clc
 	adc     _temp5
 	sta     _temp5
@@ -2228,7 +2297,7 @@ L06CB:	lda     _Generic+2
 ;
 	lda     _collision
 	and     #$40
-	beq     L06CC
+	beq     L06F1
 ;
 ; ++collision_R;
 ;
@@ -2240,7 +2309,7 @@ L06CB:	lda     _Generic+2
 ;
 ; temp3 = Generic.y + Generic.height; //y bottom
 ;
-L06CC:	lda     _Generic+1
+L06F1:	lda     _Generic+1
 	clc
 	adc     _Generic+3
 	sta     _temp3
@@ -2256,7 +2325,7 @@ L06CC:	lda     _Generic+1
 ;
 	lda     _temp3
 	cmp     #$F0
-	bcs     L067C
+	bcs     L0691
 ;
 ; bg_collision_sub();
 ;
@@ -2266,7 +2335,7 @@ L06CC:	lda     _Generic+1
 ;
 	lda     _collision
 	and     #$40
-	beq     L06CD
+	beq     L06F2
 ;
 ; ++collision_R;
 ;
@@ -2274,9 +2343,9 @@ L06CC:	lda     _Generic+1
 ;
 ; if(collision & (COL_DOWN|COL_ALL)){ // find a corner in the collision map
 ;
-L06CD:	lda     _collision
+L06F2:	lda     _collision
 	and     #$C0
-	beq     L066C
+	beq     L0681
 ;
 ; ++collision_D;
 ;
@@ -2284,7 +2353,7 @@ L06CD:	lda     _collision
 ;
 ; temp1 = temp6 & 0xff; // low byte x
 ;
-L066C:	lda     _temp6
+L0681:	lda     _temp6
 	sta     _temp1
 ;
 ; temp2 = temp6 >> 8; // high byte x
@@ -2300,7 +2369,7 @@ L066C:	lda     _temp6
 ;
 	lda     _collision
 	and     #$40
-	beq     L06CE
+	beq     L06F3
 ;
 ; ++collision_L;
 ;
@@ -2308,9 +2377,9 @@ L066C:	lda     _temp6
 ;
 ; if(collision & (COL_DOWN|COL_ALL)){ // find a corner in the collision map
 ;
-L06CE:	lda     _collision
+L06F3:	lda     _collision
 	and     #$C0
-	beq     L06CF
+	beq     L06F4
 ;
 ; ++collision_D;
 ;
@@ -2318,16 +2387,16 @@ L06CE:	lda     _collision
 ;
 ; if((temp3 & 0x0f) > 3) collision_D = 0; // for platforms, only collide with the top 3 pixels
 ;
-L06CF:	lda     _temp3
+L06F4:	lda     _temp3
 	and     #$0F
 	cmp     #$04
-	bcc     L067C
+	bcc     L0691
 	lda     #$00
 	sta     _collision_D
 ;
 ; }
 ;
-L067C:	rts
+L0691:	rts
 
 .endproc
 
@@ -2365,7 +2434,7 @@ L067C:	rts
 ; if(!map){
 ;
 	lda     _map
-	bne     L0688
+	bne     L069D
 ;
 ; collision = c_map[coordinates];
 ;
@@ -2374,13 +2443,13 @@ L067C:	rts
 ;
 ; else{
 ;
-	jmp     L06D1
+	jmp     L06F6
 ;
 ; collision = c_map2[coordinates];
 ;
-L0688:	ldy     _coordinates
+L069D:	ldy     _coordinates
 	lda     _c_map2,y
-L06D1:	sta     _collision
+L06F6:	sta     _collision
 ;
 ; collision = is_solid[collision];
 ;
@@ -2430,15 +2499,15 @@ L06D1:	sta     _collision
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L06D4
+	bcc     L06F9
 	clc
-L06D4:	adc     #$01
+L06F9:	adc     #$01
 	sta     _temp3
 ;
 ; if(temp3 >= 0xf0) return;
 ;
 	cmp     #$F0
-	bcs     L06B5
+	bcs     L06D7
 ;
 ; bg_collision_sub();
 ;
@@ -2448,7 +2517,7 @@ L06D4:	adc     #$01
 ;
 	lda     _collision
 	and     #$C0
-	beq     L06D5
+	beq     L06FA
 ;
 ; ++collision_D;
 ;
@@ -2456,7 +2525,7 @@ L06D4:	adc     #$01
 ;
 ; temp5 += Generic.width;
 ;
-L06D5:	lda     _Generic+2
+L06FA:	lda     _Generic+2
 	clc
 	adc     _temp5
 	sta     _temp5
@@ -2482,7 +2551,7 @@ L06D5:	lda     _Generic+2
 ;
 	lda     _collision
 	and     #$C0
-	beq     L06D6
+	beq     L06FB
 ;
 ; ++collision_D;
 ;
@@ -2490,16 +2559,59 @@ L06D5:	lda     _Generic+2
 ;
 ; if((temp3 & 0x0f) > 3) collision_D = 0; // for platforms, only collide with the top 3 pixels
 ;
-L06D6:	lda     _temp3
+L06FB:	lda     _temp3
 	and     #$0F
 	cmp     #$04
-	bcc     L06B5
+	bcc     L06D7
 	lda     #$00
 	sta     _collision_D
 ;
 ; }
 ;
-L06B5:	rts
+L06D7:	rts
+
+.endproc
+
+; ---------------------------------------------------------------
+; void __near__ bg_check_climbable (void)
+; ---------------------------------------------------------------
+
+.segment	"CODE"
+
+.proc	_bg_check_climbable: near
+
+.segment	"CODE"
+
+;
+; coordinates = (temp1 >> 4) + (temp3 & 0xf0);
+;
+	lda     _temp1
+	lsr     a
+	lsr     a
+	lsr     a
+	lsr     a
+	sta     ptr1
+	lda     _temp3
+	and     #$F0
+	clc
+	adc     ptr1
+	sta     _coordinates
+;
+; climbable = c_map[coordinates];
+;
+	ldy     _coordinates
+	lda     _c_map,y
+	sta     _climbable
+;
+; climbable = is_climbable[climbable];
+;
+	ldy     _climbable
+	lda     _is_climbable,y
+	sta     _climbable
+;
+; }
+;
+	rts
 
 .endproc
 
@@ -2549,7 +2661,7 @@ L06B5:	rts
 ;
 ; ppu_wait_nmi(); // wait till beginning of the frame
 ;
-L0548:	jsr     _ppu_wait_nmi
+L054A:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0); // read the first controller
 ;
@@ -2573,7 +2685,7 @@ L0548:	jsr     _ppu_wait_nmi
 ;
 ; while (1){
 ;
-	jmp     L0548
+	jmp     L054A
 
 .endproc
 

@@ -188,9 +188,9 @@ _metatiles1:
 	.byte	$03
 	.byte	$03
 	.byte	$00
+	.byte	$04
 	.byte	$05
-	.byte	$05
-	.byte	$05
+	.byte	$04
 	.byte	$05
 	.byte	$00
 	.byte	$06
@@ -198,20 +198,20 @@ _metatiles1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$07
-	.byte	$07
+	.byte	$02
+	.byte	$02
+	.byte	$02
+	.byte	$02
 	.byte	$00
 	.byte	$06
 	.byte	$06
 	.byte	$05
 	.byte	$05
 	.byte	$00
+	.byte	$04
 	.byte	$05
-	.byte	$05
-	.byte	$07
-	.byte	$07
+	.byte	$08
+	.byte	$09
 	.byte	$00
 _is_solid:
 	.byte	$00
@@ -2257,7 +2257,7 @@ L06F5:	lda     _Generic
 ;
 	inc     _collision_L
 ;
-; ++collision_U;
+; ++collision_U;  
 ;
 	inc     _collision_U
 ;

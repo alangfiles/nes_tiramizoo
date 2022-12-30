@@ -287,7 +287,7 @@ void bg_collision(void){
 	
 	if(collision & COL_ALL){ // find a corner in the collision map
 		++collision_L;
-		++collision_U;
+		++collision_U;  
 	}
 	
 	// upper right

@@ -106,11 +106,11 @@ const unsigned char palette_sp[]={
 const unsigned char metatiles1[]={
 	0, 0, 0, 0,  0,  //0 - empty
 	3, 3, 3, 3,  0,  //1 - wall
-	5, 5, 5, 5,  0,  //2 - ladder
+	4, 5, 4, 5,  0,  //2 - ladder
 	6, 6, 0, 0,  0,  //3 - top floor
-	0, 0, 7, 7,  0,  //4 - bottom floor
+	2, 2, 2, 2,  0,  //4 - bottom floor
 	6, 6, 5, 5,  0,  //5 - top floor with ladder
-	5, 5, 7, 7,  0,  //6 - bottom floor with lader
+	4, 5, 8, 9,  0,  //6 - bottom floor with lader
 };
 
 #define COL_DOWN 0x80

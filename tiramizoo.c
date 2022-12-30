@@ -14,11 +14,11 @@
 
 	
 	
-void main (void) {
+void main (void) { 
 	
 	ppu_off(); // screen off
 	
-	// load the palettes
+	// load the palettes  
 	pal_bg(palette_bg);
 	pal_spr(palette_sp);
 
@@ -91,10 +91,10 @@ void draw_sprites(void){
 	
 	// draw 1 metasprite
 	if(direction == LEFT) {
-		oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y), RoundSprL);
+		oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneL);
 	}
 	else{
-		oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y), RoundSprR);
+		oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneR);
 	}
 }
 	
@@ -145,17 +145,17 @@ void movement(void){
 		else if(BoxGuy1.x < 0x400) { // don't want to wrap around to the other side
 			BoxGuy1.vel_x = -0x100;
 		}
-		else {
+		else {  
 			BoxGuy1.vel_x -= ACCEL;
 			if(BoxGuy1.vel_x < -MAX_SPEED) BoxGuy1.vel_x = -MAX_SPEED;
 		}
 	}
 	else if (pad1 & PAD_RIGHT){
 		
-		direction = RIGHT;
+		direction = RIGHT; 
 		if(BoxGuy1.x >= 0xF000) {
 			BoxGuy1.vel_x = 0;
-			BoxGuy1.x = 0xF000;
+			BoxGuy1.x = 0xF000;  
 		} else {
 			BoxGuy1.vel_x += ACCEL;
 		if(BoxGuy1.vel_x > MAX_SPEED) BoxGuy1.vel_x = MAX_SPEED;

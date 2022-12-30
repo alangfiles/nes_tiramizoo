@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "tiramizoo.h": "c"
+    "tiramizoo.h": "c",
+    "sprites.h": "c"
   }
 }

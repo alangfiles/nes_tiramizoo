@@ -28,8 +28,8 @@
 	.import		_set_mt_pointer
 	.import		_buffer_4_mt
 	.import		_flush_vram_update2
-	.export		_RoundSprL
-	.export		_RoundSprR
+	.export		_PlayerOneL
+	.export		_PlayerOneR
 	.export		_pad1
 	.export		_pad1_new
 	.export		_collision
@@ -83,80 +83,96 @@
 
 _BoxGuy1:
 	.word	$4000
-	.word	$C400
+	.word	$A400
 	.res	4,$00
 
 .segment	"RODATA"
 
-_RoundSprL:
-	.byte	$FF
-	.byte	$FC
-	.byte	$02
-	.byte	$00
-	.byte	$07
-	.byte	$FC
-	.byte	$03
-	.byte	$00
-	.byte	$FF
-	.byte	$04
-	.byte	$12
-	.byte	$00
-	.byte	$07
-	.byte	$04
-	.byte	$13
-	.byte	$00
-	.byte	$80
-_RoundSprR:
-	.byte	$FF
-	.byte	$FC
+_PlayerOneL:
 	.byte	$00
 	.byte	$00
-	.byte	$07
-	.byte	$FC
-	.byte	$01
 	.byte	$00
-	.byte	$FF
-	.byte	$04
-	.byte	$10
-	.byte	$00
-	.byte	$07
-	.byte	$04
-	.byte	$11
-	.byte	$00
-	.byte	$80
-_palette_bg:
-	.byte	$22
-	.byte	$16
-	.byte	$36
-	.byte	$0F
 	.byte	$00
 	.byte	$08
-	.byte	$18
-	.byte	$39
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$08
+	.byte	$10
+	.byte	$00
+	.byte	$08
+	.byte	$08
+	.byte	$11
 	.byte	$00
 	.byte	$00
 	.byte	$10
 	.byte	$20
 	.byte	$00
-	.byte	$0A
-	.byte	$1A
-	.byte	$2A
-_palette_sp:
-	.byte	$22
-	.byte	$01
-	.byte	$11
+	.byte	$08
 	.byte	$10
-	.byte	$22
-	.byte	$17
-	.byte	$28
-	.byte	$38
-	.byte	$22
-	.byte	$05
-	.byte	$15
-	.byte	$35
-	.byte	$22
-	.byte	$0F
+	.byte	$21
 	.byte	$00
+	.byte	$80
+_PlayerOneR:
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$08
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$08
+	.byte	$10
+	.byte	$00
+	.byte	$08
+	.byte	$08
+	.byte	$11
+	.byte	$00
+	.byte	$00
+	.byte	$10
+	.byte	$20
+	.byte	$00
+	.byte	$08
+	.byte	$10
+	.byte	$21
+	.byte	$00
+	.byte	$80
+_palette_bg:
+	.byte	$00
+	.byte	$16
+	.byte	$07
+	.byte	$08
+	.byte	$00
+	.byte	$16
+	.byte	$07
+	.byte	$08
+	.byte	$00
+	.byte	$16
+	.byte	$07
+	.byte	$08
+	.byte	$00
+	.byte	$16
+	.byte	$07
+	.byte	$08
+_palette_sp:
+	.byte	$28
+	.byte	$06
+	.byte	$36
+	.byte	$30
+	.byte	$28
+	.byte	$06
+	.byte	$36
+	.byte	$30
+	.byte	$28
+	.byte	$06
+	.byte	$36
+	.byte	$30
+	.byte	$28
+	.byte	$06
+	.byte	$36
 	.byte	$30
 _metatiles1:
 	.byte	$00
@@ -164,61 +180,36 @@ _metatiles1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
-	.byte	$02
-	.byte	$02
-	.byte	$02
-	.byte	$02
 	.byte	$03
-	.byte	$14
-	.byte	$14
-	.byte	$14
-	.byte	$14
+	.byte	$03
+	.byte	$03
+	.byte	$03
 	.byte	$00
 	.byte	$05
+	.byte	$05
+	.byte	$05
+	.byte	$05
+	.byte	$00
 	.byte	$06
-	.byte	$15
-	.byte	$16
-	.byte	$01
 	.byte	$06
-	.byte	$06
-	.byte	$16
-	.byte	$16
-	.byte	$01
-	.byte	$06
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$07
-	.byte	$16
-	.byte	$17
-	.byte	$01
-	.byte	$15
-	.byte	$16
-	.byte	$15
-	.byte	$16
-	.byte	$01
-	.byte	$16
-	.byte	$16
-	.byte	$16
-	.byte	$16
-	.byte	$01
-	.byte	$16
-	.byte	$17
-	.byte	$16
-	.byte	$17
-	.byte	$01
-	.byte	$08
-	.byte	$09
-	.byte	$18
-	.byte	$19
-	.byte	$01
-	.byte	$09
-	.byte	$09
-	.byte	$19
-	.byte	$19
-	.byte	$01
-	.byte	$09
-	.byte	$0A
-	.byte	$19
-	.byte	$1A
-	.byte	$01
+	.byte	$07
+	.byte	$00
+	.byte	$06
+	.byte	$06
+	.byte	$05
+	.byte	$05
+	.byte	$00
+	.byte	$05
+	.byte	$05
+	.byte	$07
+	.byte	$07
+	.byte	$00
 _is_solid:
 	.byte	$00
 	.byte	$80
@@ -233,6 +224,23 @@ _is_solid:
 	.byte	$00
 	.byte	$00
 _Room1:
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
+	.byte	$01
 	.byte	$00
 	.byte	$00
 	.byte	$00
@@ -247,6 +255,8 @@ _Room1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
+	.byte	$01
+	.byte	$01
 	.byte	$00
 	.byte	$00
 	.byte	$00
@@ -261,180 +271,32 @@ _Room1:
 	.byte	$00
 	.byte	$00
 	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$02
-	.byte	$02
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$03
+	.byte	$01
+	.byte	$01
 	.byte	$04
 	.byte	$04
 	.byte	$04
-	.byte	$05
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$01
+	.byte	$01
 	.byte	$00
 	.byte	$00
 	.byte	$00
 	.byte	$00
 	.byte	$00
 	.byte	$00
+	.byte	$02
 	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$00
-	.byte	$09
-	.byte	$0A
-	.byte	$0A
-	.byte	$0A
-	.byte	$0B
 	.byte	$00
 	.byte	$00
 	.byte	$00
@@ -443,19 +305,148 @@ _Room1:
 	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$02
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$04
+	.byte	$04
 	.byte	$01
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$01
+	.byte	$01
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
+	.byte	$00
 	.byte	$01
 	.byte	$01
 	.byte	$01
@@ -1535,12 +1526,12 @@ _Generic:
 ; for(y=0; ;y+=0x20){
 ;
 	lda     #$00
-L06C3:	sta     _y
+L06BC:	sta     _y
 ;
 ; for(x=0; ;x+=0x20){
 ;
 	lda     #$00
-L06C2:	sta     _x
+L06BB:	sta     _x
 ;
 ; address = get_ppu_addr(0, x, y);
 ;
@@ -1586,31 +1577,31 @@ L06C2:	sta     _x
 ;
 	lda     _x
 	cmp     #$E0
-	beq     L06C4
+	beq     L06BD
 ;
 ; for(x=0; ;x+=0x20){
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     L06C2
+	jmp     L06BB
 ;
 ; if (y == 0xe0) break;
 ;
-L06C4:	lda     _y
+L06BD:	lda     _y
 	cmp     #$E0
-	beq     L0565
+	beq     L055C
 ;
 ; for(y=0; ;y+=0x20){
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L06C3
+	jmp     L06BC
 ;
 ; memcpy (c_map, Rooms[0], 240);
 ;
-L0565:	lda     #<(_c_map)
+L055C:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	lda     _Rooms
@@ -1640,32 +1631,36 @@ L0565:	lda     #<(_c_map)
 ; if(direction == LEFT) {
 ;
 	lda     _direction
-	bne     L058C
+	bne     L0583
 ;
-; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y), RoundSprL);
+; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneL);
 ;
 	jsr     decsp2
 	lda     _BoxGuy1+1
 	ldy     #$01
 	sta     (sp),y
 	lda     _BoxGuy1+3
+	sec
+	sbc     #$08
 	dey
 	sta     (sp),y
-	lda     #<(_RoundSprL)
-	ldx     #>(_RoundSprL)
+	lda     #<(_PlayerOneL)
+	ldx     #>(_PlayerOneL)
 	jmp     _oam_meta_spr
 ;
-; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y), RoundSprR);
+; oam_meta_spr(high_byte(BoxGuy1.x), high_byte(BoxGuy1.y)-8, PlayerOneR);
 ;
-L058C:	jsr     decsp2
+L0583:	jsr     decsp2
 	lda     _BoxGuy1+1
 	ldy     #$01
 	sta     (sp),y
 	lda     _BoxGuy1+3
+	sec
+	sbc     #$08
 	dey
 	sta     (sp),y
-	lda     #<(_RoundSprR)
-	ldx     #>(_RoundSprR)
+	lda     #<(_PlayerOneR)
+	ldx     #>(_PlayerOneR)
 	jmp     _oam_meta_spr
 
 .endproc
@@ -1692,7 +1687,7 @@ L058C:	jsr     decsp2
 ;
 	lda     _pad1
 	and     #$02
-	beq     L06C8
+	beq     L06C1
 ;
 ; direction = LEFT;
 ;
@@ -1703,10 +1698,10 @@ L058C:	jsr     decsp2
 ;
 	lda     _BoxGuy1+1
 	cmp     #$01
-	bne     L05A4
+	bne     L059D
 	lda     _BoxGuy1
 	cmp     #$01
-L05A4:	bcs     L05A2
+L059D:	bcs     L059B
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1722,49 +1717,49 @@ L05A4:	bcs     L05A2
 ;
 ; else if(BoxGuy1.x < 0x400) { // don't want to wrap around to the other side
 ;
-	jmp     L05D9
-L05A2:	ldx     _BoxGuy1+1
+	jmp     L05D2
+L059B:	ldx     _BoxGuy1+1
 	cpx     #$04
-	bcs     L05AA
+	bcs     L05A3
 ;
 ; BoxGuy1.vel_x = -0x100;
 ;
 	ldx     #$FF
 	lda     #$00
 ;
-; else {
+; else {  
 ;
-	jmp     L06CA
+	jmp     L06C3
 ;
 ; BoxGuy1.vel_x -= ACCEL;
 ;
-L05AA:	lda     _BoxGuy1+4
+L05A3:	lda     _BoxGuy1+4
 	sec
 	sbc     #$20
 	sta     _BoxGuy1+4
-	bcs     L05B1
+	bcs     L05AA
 	dec     _BoxGuy1+4+1
 ;
 ; if(BoxGuy1.vel_x < -MAX_SPEED) BoxGuy1.vel_x = -MAX_SPEED;
 ;
-L05B1:	lda     _BoxGuy1+4
+L05AA:	lda     _BoxGuy1+4
 	cmp     #$C0
 	lda     _BoxGuy1+4+1
 	sbc     #$FD
-	bvc     L05B4
+	bvc     L05AD
 	eor     #$80
-L05B4:	jpl     L05D9
+L05AD:	jpl     L05D2
 	ldx     #$FD
 	lda     #$C0
 ;
 ; else if (pad1 & PAD_RIGHT){
 ;
-	jmp     L06CA
-L06C8:	lda     _pad1
+	jmp     L06C3
+L06C1:	lda     _pad1
 	and     #$01
-	beq     L05B8
+	beq     L05B1
 ;
-; direction = RIGHT;
+; direction = RIGHT; 
 ;
 	lda     #$01
 	sta     _direction
@@ -1775,7 +1770,7 @@ L06C8:	lda     _pad1
 	cmp     #$00
 	lda     _BoxGuy1+1
 	sbc     #$F0
-	bcc     L05BC
+	bcc     L05B5
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1783,7 +1778,7 @@ L06C8:	lda     _pad1
 	sta     _BoxGuy1+4
 	sta     _BoxGuy1+4+1
 ;
-; BoxGuy1.x = 0xF000;
+; BoxGuy1.x = 0xF000;  
 ;
 	ldx     #$F0
 	sta     _BoxGuy1
@@ -1791,78 +1786,78 @@ L06C8:	lda     _pad1
 ;
 ; } else {
 ;
-	jmp     L05D9
+	jmp     L05D2
 ;
 ; BoxGuy1.vel_x += ACCEL;
 ;
-L05BC:	lda     #$20
+L05B5:	lda     #$20
 	clc
 	adc     _BoxGuy1+4
 	sta     _BoxGuy1+4
-	bcc     L05C5
+	bcc     L05BE
 	inc     _BoxGuy1+4+1
 ;
 ; if(BoxGuy1.vel_x > MAX_SPEED) BoxGuy1.vel_x = MAX_SPEED;
 ;
-L05C5:	lda     _BoxGuy1+4
+L05BE:	lda     _BoxGuy1+4
 	cmp     #$41
 	lda     _BoxGuy1+4+1
 	sbc     #$02
-	bvs     L05C8
+	bvs     L05C1
 	eor     #$80
-L05C8:	bpl     L05D9
+L05C1:	bpl     L05D2
 	ldx     #$02
 	lda     #$40
 ;
 ; else { // nothing pressed
 ;
-	jmp     L06CA
+	jmp     L06C3
 ;
 ; if(BoxGuy1.vel_x >= 0x100) BoxGuy1.vel_x -= ACCEL;
 ;
-L05B8:	lda     _BoxGuy1+4
+L05B1:	lda     _BoxGuy1+4
 	cmp     #$00
 	lda     _BoxGuy1+4+1
 	sbc     #$01
-	bvs     L05CE
+	bvs     L05C7
 	eor     #$80
-L05CE:	bpl     L05CC
+L05C7:	bpl     L05C5
 	lda     _BoxGuy1+4
 	sec
 	sbc     #$20
 	sta     _BoxGuy1+4
-	bcs     L05D9
+	bcs     L05D2
 	dec     _BoxGuy1+4+1
 ;
 ; else if(BoxGuy1.vel_x < -0x100) BoxGuy1.vel_x += ACCEL;
 ;
-	jmp     L05D9
-L05CC:	lda     _BoxGuy1+4
+	jmp     L05D2
+L05C5:	lda     _BoxGuy1+4
 	cmp     #$00
 	lda     _BoxGuy1+4+1
 	sbc     #$FF
-	bvc     L05D5
+	bvc     L05CE
 	eor     #$80
-L05D5:	asl     a
+L05CE:	asl     a
 	lda     #$00
 	tax
-	bcc     L06CA
+	bcc     L06C3
 	lda     #$20
 	clc
 	adc     _BoxGuy1+4
 	sta     _BoxGuy1+4
-	bcc     L05D9
+	bcc     L05D2
 	inc     _BoxGuy1+4+1
 ;
 ; else BoxGuy1.vel_x = 0;
 ;
-	jmp     L05D9
-L06CA:	sta     _BoxGuy1+4
+	jmp     L05D2
+L06C3:	sta     _BoxGuy1+4
 	stx     _BoxGuy1+4+1
 ;
 ; BoxGuy1.x += BoxGuy1.vel_x;
 ;
-L05D9:	lda     _BoxGuy1+4
+L05D2:	lda     _BoxGuy1+4
 	clc
 	adc     _BoxGuy1
 	sta     _BoxGuy1
@@ -1876,7 +1871,7 @@ L05D9:	lda     _BoxGuy1+4
 	cmp     #$01
 	lda     _BoxGuy1+1
 	sbc     #$F8
-	bcc     L06CB
+	bcc     L06C4
 ;
 ; BoxGuy1.x = 0x100;
 ;
@@ -1892,7 +1887,7 @@ L05D9:	lda     _BoxGuy1+4
 ;
 ; Generic.x = high_byte(BoxGuy1.x); // this is much faster than passing a pointer to BoxGuy1
 ;
-L06CB:	lda     _BoxGuy1+1
+L06C4:	lda     _BoxGuy1+1
 	sta     _Generic
 ;
 ; Generic.y = high_byte(BoxGuy1.y);
@@ -1917,9 +1912,9 @@ L06CB:	lda     _BoxGuy1+1
 ; if(collision_R && collision_L){ // if both true, probably half stuck in a wall
 ;
 	lda     _collision_R
-	beq     L05EF
+	beq     L05E8
 	lda     _collision_L
-	beq     L05EF
+	beq     L05E8
 ;
 ; BoxGuy1.x = old_x;
 ;
@@ -1936,9 +1931,9 @@ L06CB:	lda     _BoxGuy1+1
 ;
 ; else if(collision_L) {
 ;
-	jmp     L0601
-L05EF:	lda     _collision_L
-	beq     L05F8
+	jmp     L05FA
+L05E8:	lda     _collision_L
+	beq     L05F1
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1954,9 +1949,9 @@ L05EF:	lda     _collision_L
 ;
 ; else if(collision_R) {
 ;
-	jmp     L06CF
-L05F8:	lda     _collision_R
-	beq     L0601
+	jmp     L06C8
+L05F1:	lda     _collision_R
+	beq     L05FA
 ;
 ; BoxGuy1.vel_x = 0;
 ;
@@ -1969,17 +1964,17 @@ L05F8:	lda     _collision_R
 	lda     _BoxGuy1+1
 	sec
 	sbc     _eject_R
-L06CF:	sta     _BoxGuy1+1
+L06C8:	sta     _BoxGuy1+1
 ;
 ; if(BoxGuy1.vel_y < 0x300){
 ;
-L0601:	lda     _BoxGuy1+6
+L05FA:	lda     _BoxGuy1+6
 	cmp     #$00
 	lda     _BoxGuy1+6+1
 	sbc     #$03
-	bvc     L060B
+	bvc     L0604
 	eor     #$80
-L060B:	bpl     L0609
+L0604:	bpl     L0602
 ;
 ; BoxGuy1.vel_y += GRAVITY;
 ;
@@ -1987,23 +1982,23 @@ L060B:	bpl     L0609
 	clc
 	adc     _BoxGuy1+6
 	sta     _BoxGuy1+6
-	bcc     L060F
+	bcc     L0608
 	inc     _BoxGuy1+6+1
 ;
 ; else{
 ;
-	jmp     L060F
+	jmp     L0608
 ;
 ; BoxGuy1.vel_y = 0x300; // consistent
 ;
-L0609:	ldx     #$03
+L0602:	ldx     #$03
 	lda     #$00
 	sta     _BoxGuy1+6
 	stx     _BoxGuy1+6+1
 ;
 ; BoxGuy1.y += BoxGuy1.vel_y;
 ;
-L060F:	lda     _BoxGuy1+6
+L0608:	lda     _BoxGuy1+6
 	clc
 	adc     _BoxGuy1+2
 	sta     _BoxGuy1+2
@@ -2028,7 +2023,7 @@ L060F:	lda     _BoxGuy1+6
 ; if(collision_U) {
 ;
 	lda     _collision_U
-	beq     L061B
+	beq     L0614
 ;
 ; high_byte(BoxGuy1.y) = high_byte(BoxGuy1.y) - eject_U;
 ;
@@ -2039,9 +2034,9 @@ L060F:	lda     _BoxGuy1+6
 ;
 ; else if(collision_D) {
 ;
-	jmp     L06D0
-L061B:	lda     _collision_D
-	beq     L06CC
+	jmp     L06C9
+L0614:	lda     _collision_D
+	beq     L06C5
 ;
 ; high_byte(BoxGuy1.y) = high_byte(BoxGuy1.y) - eject_D;
 ;
@@ -2063,19 +2058,19 @@ L061B:	lda     _collision_D
 	cmp     #$01
 	lda     _BoxGuy1+6+1
 	sbc     #$00
-	bvs     L062E
+	bvs     L0627
 	eor     #$80
-L062E:	bpl     L06CC
+L0627:	bpl     L06C5
 ;
 ; BoxGuy1.vel_y = 0;
 ;
-L06D0:	lda     #$00
+L06C9:	lda     #$00
 	sta     _BoxGuy1+6
 	sta     _BoxGuy1+6+1
 ;
 ; Generic.y = high_byte(BoxGuy1.y); // the rest should be the same
 ;
-L06CC:	lda     _BoxGuy1+3
+L06C5:	lda     _BoxGuy1+3
 	sta     _Generic+1
 ;
 ; bg_check_low();
@@ -2085,13 +2080,13 @@ L06CC:	lda     _BoxGuy1+3
 ; if(collision_D) {
 ;
 	lda     _collision_D
-	beq     L0637
+	beq     L0630
 ;
 ; if(pad1_new & PAD_A) {
 ;
 	lda     _pad1_new
 	and     #$80
-	beq     L0637
+	beq     L0630
 ;
 ; BoxGuy1.vel_y = JUMP_VEL; // JUMP
 ;
@@ -2102,7 +2097,7 @@ L06CC:	lda     _BoxGuy1+3
 ;
 ; } 
 ;
-L0637:	rts
+L0630:	rts
 
 .endproc
 
@@ -2138,7 +2133,7 @@ L0637:	rts
 ;
 	lda     _Generic+1
 	cmp     #$F0
-	bcc     L06D7
+	bcc     L06D0
 ;
 ; }
 ;
@@ -2146,7 +2141,7 @@ L0637:	rts
 ;
 ; temp6 = temp5 = Generic.x; // upper left (temp6 = save for reuse)
 ;
-L06D7:	lda     _Generic
+L06D0:	lda     _Generic
 	ldx     #$00
 	sta     _temp5
 	stx     _temp5+1
@@ -2187,7 +2182,7 @@ L06D7:	lda     _Generic
 ;
 	lda     _collision
 	and     #$40
-	beq     L06D2
+	beq     L06CB
 ;
 ; ++collision_L;
 ;
@@ -2199,7 +2194,7 @@ L06D7:	lda     _Generic
 ;
 ; temp5 += Generic.width;
 ;
-L06D2:	lda     _Generic+2
+L06CB:	lda     _Generic+2
 	clc
 	adc     _temp5
 	sta     _temp5
@@ -2233,7 +2228,7 @@ L06D2:	lda     _Generic+2
 ;
 	lda     _collision
 	and     #$40
-	beq     L06D3
+	beq     L06CC
 ;
 ; ++collision_R;
 ;
@@ -2245,7 +2240,7 @@ L06D2:	lda     _Generic+2
 ;
 ; temp3 = Generic.y + Generic.height; //y bottom
 ;
-L06D3:	lda     _Generic+1
+L06CC:	lda     _Generic+1
 	clc
 	adc     _Generic+3
 	sta     _temp3
@@ -2261,7 +2256,7 @@ L06D3:	lda     _Generic+1
 ;
 	lda     _temp3
 	cmp     #$F0
-	bcs     L0683
+	bcs     L067C
 ;
 ; bg_collision_sub();
 ;
@@ -2271,7 +2266,7 @@ L06D3:	lda     _Generic+1
 ;
 	lda     _collision
 	and     #$40
-	beq     L06D4
+	beq     L06CD
 ;
 ; ++collision_R;
 ;
@@ -2279,9 +2274,9 @@ L06D3:	lda     _Generic+1
 ;
 ; if(collision & (COL_DOWN|COL_ALL)){ // find a corner in the collision map
 ;
-L06D4:	lda     _collision
+L06CD:	lda     _collision
 	and     #$C0
-	beq     L0673
+	beq     L066C
 ;
 ; ++collision_D;
 ;
@@ -2289,7 +2284,7 @@ L06D4:	lda     _collision
 ;
 ; temp1 = temp6 & 0xff; // low byte x
 ;
-L0673:	lda     _temp6
+L066C:	lda     _temp6
 	sta     _temp1
 ;
 ; temp2 = temp6 >> 8; // high byte x
@@ -2305,7 +2300,7 @@ L0673:	lda     _temp6
 ;
 	lda     _collision
 	and     #$40
-	beq     L06D5
+	beq     L06CE
 ;
 ; ++collision_L;
 ;
@@ -2313,9 +2308,9 @@ L0673:	lda     _temp6
 ;
 ; if(collision & (COL_DOWN|COL_ALL)){ // find a corner in the collision map
 ;
-L06D5:	lda     _collision
+L06CE:	lda     _collision
 	and     #$C0
-	beq     L06D6
+	beq     L06CF
 ;
 ; ++collision_D;
 ;
@@ -2323,16 +2318,16 @@ L06D5:	lda     _collision
 ;
 ; if((temp3 & 0x0f) > 3) collision_D = 0; // for platforms, only collide with the top 3 pixels
 ;
-L06D6:	lda     _temp3
+L06CF:	lda     _temp3
 	and     #$0F
 	cmp     #$04
-	bcc     L0683
+	bcc     L067C
 	lda     #$00
 	sta     _collision_D
 ;
 ; }
 ;
-L0683:	rts
+L067C:	rts
 
 .endproc
 
@@ -2370,7 +2365,7 @@ L0683:	rts
 ; if(!map){
 ;
 	lda     _map
-	bne     L068F
+	bne     L0688
 ;
 ; collision = c_map[coordinates];
 ;
@@ -2379,13 +2374,13 @@ L0683:	rts
 ;
 ; else{
 ;
-	jmp     L06D8
+	jmp     L06D1
 ;
 ; collision = c_map2[coordinates];
 ;
-L068F:	ldy     _coordinates
+L0688:	ldy     _coordinates
 	lda     _c_map2,y
-L06D8:	sta     _collision
+L06D1:	sta     _collision
 ;
 ; collision = is_solid[collision];
 ;
@@ -2435,15 +2430,15 @@ L06D8:	sta     _collision
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L06DB
+	bcc     L06D4
 	clc
-L06DB:	adc     #$01
+L06D4:	adc     #$01
 	sta     _temp3
 ;
 ; if(temp3 >= 0xf0) return;
 ;
 	cmp     #$F0
-	bcs     L06BC
+	bcs     L06B5
 ;
 ; bg_collision_sub();
 ;
@@ -2453,7 +2448,7 @@ L06DB:	adc     #$01
 ;
 	lda     _collision
 	and     #$C0
-	beq     L06DC
+	beq     L06D5
 ;
 ; ++collision_D;
 ;
@@ -2461,7 +2456,7 @@ L06DB:	adc     #$01
 ;
 ; temp5 += Generic.width;
 ;
-L06DC:	lda     _Generic+2
+L06D5:	lda     _Generic+2
 	clc
 	adc     _temp5
 	sta     _temp5
@@ -2487,7 +2482,7 @@ L06DC:	lda     _Generic+2
 ;
 	lda     _collision
 	and     #$C0
-	beq     L06DD
+	beq     L06D6
 ;
 ; ++collision_D;
 ;
@@ -2495,16 +2490,16 @@ L06DC:	lda     _Generic+2
 ;
 ; if((temp3 & 0x0f) > 3) collision_D = 0; // for platforms, only collide with the top 3 pixels
 ;
-L06DD:	lda     _temp3
+L06D6:	lda     _temp3
 	and     #$0F
 	cmp     #$04
-	bcc     L06BC
+	bcc     L06B5
 	lda     #$00
 	sta     _collision_D
 ;
 ; }
 ;
-L06BC:	rts
+L06B5:	rts
 
 .endproc
 
@@ -2554,7 +2549,7 @@ L06BC:	rts
 ;
 ; ppu_wait_nmi(); // wait till beginning of the frame
 ;
-L0551:	jsr     _ppu_wait_nmi
+L0548:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0); // read the first controller
 ;
@@ -2578,7 +2573,7 @@ L0551:	jsr     _ppu_wait_nmi
 ;
 ; while (1){
 ;
-	jmp     L0551
+	jmp     L0548
 
 .endproc
 

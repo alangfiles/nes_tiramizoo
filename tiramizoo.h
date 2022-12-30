@@ -65,7 +65,7 @@ struct Hero {
 	signed int vel_y;
 };
 
-struct Hero BoxGuy1 = {0x4000,0xc400}; // starting position
+struct Hero BoxGuy1 = {0x4000,0xa400}; // starting position
 // the width and height should be 1 less than the dimensions (14x12)
 // note, I'm using the top left as the 0,0 on x,y
 
@@ -79,19 +79,19 @@ struct Hero BoxGuy1 = {0x4000,0xc400}; // starting position
 
 
 const unsigned char palette_bg[]={
-0x22, 0x16, 0x36, 0x0f, 
-0, 8, 0x18, 0x39, 
-0, 0, 0x10, 0x20, 
-0, 0x0a, 0x1a, 0x2a 
+0x00, 0x16, 0x07, 0x08, 
+0x00, 0x16, 0x07, 0x08, 
+0x00, 0x16, 0x07, 0x08, 
+0x00, 0x16, 0x07, 0x08, 
 }; 
 
 
 
 const unsigned char palette_sp[]={
-0x22, 0x01, 0x11, 0x10, 
-0x22, 0x17, 0x28, 0x38, 
-0x22, 0x05, 0x15, 0x35, 
-0x22, 0x0f, 0x00, 0x30, 
+0x28, 0x06, 0x36, 0x30, 
+0x28, 0x06, 0x36, 0x30,
+0x28, 0x06, 0x36, 0x30,
+0x28, 0x06, 0x36, 0x30,
 }; 
 
 
@@ -103,18 +103,13 @@ const unsigned char palette_sp[]={
 //				0000 0011 = palette
 
 const unsigned char metatiles1[]={
-	0, 0, 0, 0,  0,
-	2, 2, 2, 2,  3,
-	20, 20, 20, 20,  0,
-	5, 6, 21, 22,  1,
-	6, 6, 22, 22,  1,
-	6, 7, 22, 23,  1,
-	21, 22, 21, 22,  1,
-	22, 22, 22, 22,  1,
-	22, 23, 22, 23,  1,
-	8, 9, 24, 25,  1,
-	9, 9, 25, 25,  1,
-	9, 10, 25, 26,  1
+	0, 0, 0, 0,  0,  //0 - empty
+	3, 3, 3, 3,  0,  //1 - wall
+	5, 5, 5, 5,  0,  //2 - ladder
+	6, 6, 0, 0,  0,  //3 - top floor
+	0, 0, 7, 7,  0,  //4 - bottom floor
+	6, 6, 5, 5,  0,  //5 - top floor with ladder
+	5, 5, 7, 7,  0,  //6 - bottom floor with lader
 };
 
 #define COL_DOWN 0x80
